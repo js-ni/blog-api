@@ -11,14 +11,8 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 const USERNAME = process.env.USERNAME || 'javascript-nicaragua';
 
-// only allow CORS on community domain
-const corsOptions = {
-  origin: 'https://ni.js.org/',
-  optionsSuccessStatus: 200,
-};
-
 // enable CORS
-app.use(cors(corsOptions));
+app.use(cors());
 
 app.get('/', (req, res) => {
   mediumJSONFeed(USERNAME, (data) => {
